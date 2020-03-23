@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-card-element',
@@ -7,24 +7,12 @@ import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angu
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class CardElementComponent {
-  @Input() title: string;
-  @Input() name: string;
-  @Input() time = new Date();
-  @Input() caption: string;
-  @Input() avtar: string;
-  @Input() image: string;
 
-  @Output() likeNotify = new EventEmitter<boolean>();
-  @Output() shareNotify = new EventEmitter<boolean>();
-  @Output() commentNotify = new EventEmitter<boolean>();
+  title = "Card element";
+  count = 0;
 
-  likeEvent() {
-    this.likeNotify.emit(true);
-  }
-  shareEvent() {
-    this.shareNotify.emit(true);
-  }
-  commentEvent() {
-    this.commentNotify.emit(true);
+  clickMe() {
+    this.count++;
+    console.log("Click count: " + this.count);
   }
 }
