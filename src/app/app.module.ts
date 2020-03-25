@@ -25,6 +25,6 @@ export class AppModule {
     });
 
     // using built in the browser to create your own custome element name
-    customElements.define('card-element', el);
+    customElements.define('click-counter', el);
   }
 }

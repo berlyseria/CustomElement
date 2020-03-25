@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:elements": "ng build --prod --output-hashing none && node build-elements.js && http-server elements -p 5501 -c-1"
+    "build:element": "ng build --prod --output-hashing none && node build-elements.js && http-server elements -p 5501 -c-1"
   },
   "private": true,
   "dependencies": {

@@ -8,7 +8,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class CardElementComponent {
 
-  title = "Card element";
   count = 0;
 
   clickMe() {
