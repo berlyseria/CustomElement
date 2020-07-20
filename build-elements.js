@@ -17,7 +17,7 @@ const concat = require('concat');
     ];
 
     await fs.ensureDir('elements');
-    await concat(files, 'elements/click-counter.js');
+    await concat(files, 'elements/wc-element.js');
 
     jsInIndex.forEach(
         async element =>

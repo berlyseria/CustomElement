@@ -1,30 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
-import { CardElementComponent } from './card-element/card-element.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomAccordionComponent } from './custom-accordion/custom-accordion.component';
+import { CustomAccordionContentComponent } from './custom-accordion/custom-accordion-content/custom-accordion-content.component';
+
 
 @NgModule({
   declarations: [
-    CardElementComponent
+    CustomAccordionComponent,
+    CustomAccordionContentComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule
   ],
   providers: [],
-  entryComponents: [CardElementComponent]
+  entryComponents: [CustomAccordionComponent]
 })
 export class AppModule {
   constructor(private injector: Injector) { }
 
   ngDoBootstrap() {
-    // using createCustomElement from angular package it will convert angular component to stander web component
-    const el = createCustomElement(CardElementComponent, {
+    const accordionEl = createCustomElement(CustomAccordionComponent, {
       injector: this.injector
     });
+    customElements.define('custom-accordion', accordionEl);
 
-    // using built in the browser to create your own custome element name
-    customElements.define('click-counter', el);
+    const accordionContentEl = createCustomElement(CustomAccordionContentComponent, {
+      injector: this.injector
+    });
+    customElements.define('custom-accordion-content', accordionContentEl);
+
   }
 }

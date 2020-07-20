@@ -1,0 +1,103 @@
+
+// .add-padding{  
+//   @media (min-width: map-get($grid-breakpoints, lg)) {
+//     padding-right: 40px;
+//     padding-left: 41px;
+//   }
+
+//   @media (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, lg)-1) {
+//     padding-right: 25px;
+//     padding-left: 26px;
+//   }
+  
+//   @media (min-width: map-get($grid-breakpoints, sm)) and (max-width: map-get($grid-breakpoints, md)-1) {
+//     padding-right: 20px;
+//     padding-left: 21px;
+//   }
+// }
+
+.accordion{  
+  &.click-focus:focus{
+    outline: none;
+  }
+  
+  &:focus{
+    // @include addfocus();
+    border: 1px solid blue;
+  }
+}
+
+.accordion-panel{
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .header{
+    cursor: pointer;
+    height: 27px !important;
+    font-family: sans-serif !important;
+    font-size: 20px !important;
+
+    &:hover {
+        font-family: sans-serif !important;
+    }
+  }
+
+  svg.chevron{
+    transition: all 0.5s ease;
+  }
+}
+
+// .accordion-content{
+//   @media (min-width: map-get($grid-breakpoints, lg)) {
+//     padding-left: 10px;
+//     padding-right: 10px;
+//   }
+
+//   @media (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, lg)-1) {
+//     padding-right: 10px;
+//     padding-left: 10px;
+//   }
+  
+//   @media (min-width: map-get($grid-breakpoints, sm)) and (max-width: map-get($grid-breakpoints, md)-1) {
+//     padding-right: 7px;
+//     padding-left: 7px;
+//   }
+// }
+
+.chevron {
+  text-align: end;
+}
+
+.selected {
+  background: #f7f7f7;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  
+  .accordion-panel{
+    padding-bottom: 5px;
+    border: none;
+  }
+
+  svg.chevron{
+    transform: rotate(180deg);
+  }
+}
+
+// hr{
+//   @media (min-width: map-get($grid-breakpoints, lg)) {
+//     margin: 0px 40px;
+//   }
+
+//   @media (min-width: map-get($grid-breakpoints, md)) and (max-width: map-get($grid-breakpoints, lg)-1) {
+//     margin: 0px 25px;
+//   }
+  
+//   @media (min-width: map-get($grid-breakpoints, sm)) and (max-width: map-get($grid-breakpoints, md)-1) {
+//     margin: 0px 20px;
+//   }
+
+//   &.extend{
+//     margin-right: 0px;
+//     margin-left: 0px;
+//   }
+// }
