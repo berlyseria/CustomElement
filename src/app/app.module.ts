@@ -19,9 +19,7 @@ import { CustomAccordionContentComponent } from './custom-accordion/custom-accor
   entryComponents: [CustomAccordionComponent]
 })
 export class AppModule {
-  constructor(private injector: Injector) { }
-
-  ngDoBootstrap() {
+  constructor(private injector: Injector) {
     const accordionEl = createCustomElement(CustomAccordionComponent, {
       injector: this.injector
     });
@@ -31,6 +29,7 @@ export class AppModule {
       injector: this.injector
     });
     customElements.define('custom-accordion-content', accordionContentEl);
-
   }
+
+  ngDoBootstrap() { }
 }

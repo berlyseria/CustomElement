@@ -61,7 +61,6 @@ export class CustomAccordionComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // console.log("ViewChildren", this.accordionContent);
     this._children = this.accordionContent.toArray();
     console.log(this._children);
 
@@ -70,15 +69,5 @@ export class CustomAccordionComponent implements AfterViewInit {
         this.toggle(this._children[index]);
       });
     }
-
-    // for (let index = 0; index < this._children.length; index++) {
-    //   this.renderer2.listen(this._children[index].elementRef.nativeElement, 'keyup', ($event: KeyboardEvent) => {
-    //     $event.preventDefault();
-    //     this._children[index].clickFocus = false;
-    //     if ($event.keyCode === 32 || $event.keyCode === 13) {
-    //       this.toggle(this._children[index]);
-    //     }
-    //   });
-    // }
   }
 }
