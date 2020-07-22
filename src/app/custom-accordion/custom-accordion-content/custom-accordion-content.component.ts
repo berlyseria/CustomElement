@@ -18,10 +18,8 @@ import {
 })
 export class CustomAccordionContentComponent implements OnInit {
   private _contentId: number;
-  private _header: string;
-  private _opened: boolean = false;
-
-  @Input() isopen: boolean;
+  // private _header: string;
+  private _isopen: boolean = false;
 
   @Input() set contentId(value: number) {
     this._contentId = value;
@@ -30,28 +28,26 @@ export class CustomAccordionContentComponent implements OnInit {
     return this._contentId;
   }
 
-  @Input('header') set header(value: string) {
-    this._header = value;
-  }
-  get header(): string {
-    return this._header;
-  }
+  // @Input('header') set header(value: string) {
+  //   this._header = value;
+  // }
+  // get header(): string {
+  //   return this._header;
+  // }
 
   @Output() toggleAccordion: EventEmitter<boolean> = new EventEmitter();
 
   toggleOpen() {
-    this.opened = !this.opened;
-    this.toggleAccordion.emit(this.opened);
+    this.isopen = !this.isopen;
+    this.toggleAccordion.emit(this.isopen);
   }
 
-  public set opened(value: boolean) {
-    this._opened = value;
-  }
-  public get opened(): boolean {
-    return this._opened;
-  }
+  @Input() set isopen(value: boolean) { this._isopen = value; }
+  get isopen(): boolean { return this._isopen; }
 
   constructor(public elementRef: ElementRef) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log("Open:", this.isopen);
+  }
 }

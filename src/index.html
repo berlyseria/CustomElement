@@ -6,12 +6,41 @@
 </head>
 
 <body>
-  <card-element title="Click Counter"></card-element>
-  <custom-accordion>
-    <custom-accordion-content header="hello">
-      <p>inside accordion</p>
-    </custom-accordion-content>
-  </custom-accordion>
+  <custom-h2 text="Testing Custom Accordion"></custom-h2>
+  <custom-container
+    contentlist='[
+    { "type": "General",
+      "header": "Basic prescription drug",
+      "open": "false",
+      "content": [
+        { "details": ["Up to $3,500 per person, per year for formulary† drugs prescribed to treat newly diagnosed conditions.", "Exclusions apply. See the policy for complete details"],
+          "footer": "†Formulary drugs are prescription drugs a provincial or territorial government includes in their drug plan formulary and for which the government provides cost sharing with its residents. Formularies vary by province and territory."}]},
+    { "type": "General",
+      "header": "Enhanced prescription drugs",
+      "open": "false",
+      "content": [
+        { "details": ["Up to $3,500 per person, per year for formulary† drugs prescribed to treat newly diagnosed conditions.", "Exclusions apply. See the policy for complete details"],
+          "footer": "†Formulary drugs are prescription drugs a provincial or territorial government includes in their drug plan formulary and for which the government provides cost sharing with its residents. Formularies vary by province and territory."}]},
+    { "type": "General",
+      "header": "Dental care",
+      "open": "false",
+      "content": [
+        { "details": ["Up to $3,500 per person, per year for formulary† drugs prescribed to treat newly diagnosed conditions.", "Exclusions apply. See the policy for complete details"],
+          "footer": "†Formulary drugs are prescription drugs a provincial or territorial government includes in their drug plan formulary and for which the government provides cost sharing with its residents. Formularies vary by province and territory."}]},
+    { "type": "General",
+      "header": "Hospital cash",
+      "open": "false",
+      "content": [
+        { "details": ["Up to $3,500 per person, per year for formulary† drugs prescribed to treat newly diagnosed conditions.", "Exclusions apply. See the policy for complete details"],
+          "footer": "†Formulary drugs are prescription drugs a provincial or territorial government includes in their drug plan formulary and for which the government provides cost sharing with its residents. Formularies vary by province and territory."}]},
+    { "type": "General",
+      "header": "Annual travel",
+      "open": "false",
+      "content": [
+        { "details": ["Up to $3,500 per person, per year for formulary† drugs prescribed to treat newly diagnosed conditions.", "Exclusions apply. See the policy for complete details"],
+          "footer": "†Formulary drugs are prescription drugs a provincial or territorial government includes in their drug plan formulary and for which the government provides cost sharing with its residents. Formularies vary by province and territory."}]}]'>
+  </custom-container>
+
   <script src="wc-element.js"></script>
 </body>
 

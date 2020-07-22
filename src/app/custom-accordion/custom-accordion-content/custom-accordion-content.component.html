@@ -1,20 +1,5 @@
-<div class="accordion" [class.selected]="opened" (click)="toggleOpen()">
-  <div class="accordion-panel add-padding row">
-    <div class="header col-10">
-      {{header}}
-    </div>
-    <div class="chevron col-2">
-      <svg class="chevron" width="17px" height="9.5px" viewBox="0 0 17 10" version="1.1"
-        xmlns="http://www.w3.org/2000/svg">
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <polyline id="Path" stroke="#231F20" stroke-width="2" points="1 1 8.47875354 8.5 15.9575071 1">
-          </polyline>
-        </g>
-      </svg>
-    </div>
-  </div>
-  <div *ngIf="opened" class="accordion-content">
+<div class="accordion" [class.selected]="isopen" (click)="toggleOpen()">
+  <div *ngIf="isopen" class="accordion-content">
     <ng-content></ng-content>
   </div>
 </div>
-<hr>

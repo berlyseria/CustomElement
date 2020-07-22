@@ -9,48 +9,58 @@ import { CustomAccordionContentComponent } from './custom-accordion-content/cust
 })
 export class CustomAccordionComponent implements AfterViewInit {
 
+  private _header: string;
+  private _contents: object;
   private _panelOpenState = false;
-  private _open: boolean = false;
+  private _panelId: number;
   private _multiple: boolean = false;
 
   private _children: Array<CustomAccordionContentComponent> = new Array<CustomAccordionContentComponent>();
 
   @ViewChildren(CustomAccordionContentComponent) accordionContent: QueryList<CustomAccordionContentComponent>;
 
-  @Output() isOpen = new EventEmitter<boolean>();
+  @Input() set panelId(value: number) { this._panelId = value; }
+  get panelId(): number { return this._panelId; }
 
-  public set panelOpenState(value) { this._panelOpenState = value; }
-  public get panelOpenState() { return this._panelOpenState; }
+  @Input() set header(value: string) { this._header = value; }
+  get header(): string { return this._header; }
 
-  public set open(value: boolean) { this._open = value; }
-  public get open(): boolean { return this._open; }
+  @Input() set contents(value: object) { this._contents = value; }
+  get contents(): object { return this._contents; }
+
+  set panelOpenState(value) { this._panelOpenState = value; }
+  get panelOpenState() { return this._panelOpenState; }
+
 
   @Input('multiple') set multiple(value: boolean) { this._multiple = value; }
   get multiple(): boolean { return this._multiple; }
 
   setOpen() {
-    this.open = true;
-    this.isOpen.emit(this.open);
+    this.panelOpenState = true;
   }
 
   setClose() {
-    this.open = false;
-    this.isOpen.emit(this.open);
+    this.panelOpenState = false;
+  }
+
+  togglePanel() {
+    console.log("toggle panel clicked.");
+    this.panelOpenState ? this.setClose() : this.setOpen();
   }
 
   toggle(child: CustomAccordionContentComponent) {
     console.log("Entering custom accordion toggle...");
     // Close panel if clicked the second time
-    if (this._children[child.contentId].opened) {
-      child.opened = false;
+    if (this._children[child.contentId].isopen) {
+      child.isopen = false;
       this.setClose();
     }
     else {
       if (!this.multiple) {
         // Close every panel and show every HR
-        this._children.forEach((c) => { c.opened = false; });
+        this._children.forEach((c) => { c.isopen = false; });
       }
-      child.opened = true;
+      child.isopen = true;
       this.setOpen();
     }
   }
@@ -61,13 +71,15 @@ export class CustomAccordionComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this._children = this.accordionContent.toArray();
-    console.log(this._children);
+    console.log(this.accordionContent);
+    console.log(this.contents);
+    // this._children = this.accordionContent.toArray();
 
-    for (let index = 0; index < this._children.length; index++) {
-      this.renderer2.listen(this._children[index].elementRef.nativeElement, 'click', () => {
-        this.toggle(this._children[index]);
-      });
-    }
+    // for (let index = 0; index < this._children.length; index++) {
+    //   this.renderer2.listen(this._children[index].elementRef.nativeElement, 'click', () => {
+    //     console.log(this._children[index]);
+    //     this.toggle(this._children[index]);
+    //   });
+    // }
   }
 }
