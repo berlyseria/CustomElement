@@ -10,26 +10,16 @@ import { CustomAccordionContentComponent } from './custom-accordion-content/cust
 export class CustomAccordionComponent implements AfterViewInit {
 
   private _header: string;
-  // private _contents: object;
   private _panelOpenState = false;
   private _panelId: number;
   private _multiple: boolean = false;
 
   private _children: Array<CustomAccordionContentComponent> = new Array<CustomAccordionContentComponent>();
 
-  @ViewChildren(CustomAccordionContentComponent) accordionContent: QueryList<CustomAccordionContentComponent>;
+  @ViewChildren(CustomAccordionContentComponent) accordionContent: CustomAccordionContentComponent;
 
   @Input() set panelId(value: number) { this._panelId = value; }
   get panelId(): number { return this._panelId; }
-
-  // @Input() set contents(value: object) {
-  //   console.log(value);
-  //   // this._contents = value;
-
-  //   this.header = value['header'];
-  // }
-
-  // get contents(): object { return this._contents; }
 
   @Input() set header(value: string) { this._header = value; }
   get header(): string { return this._header; }
@@ -41,13 +31,8 @@ export class CustomAccordionComponent implements AfterViewInit {
   @Input('multiple') set multiple(value: boolean) { this._multiple = value; }
   get multiple(): boolean { return this._multiple; }
 
-  setOpen() {
-    this.panelOpenState = true;
-  }
-
-  setClose() {
-    this.panelOpenState = false;
-  }
+  setOpen() { this.panelOpenState = true; }
+  setClose() { this.panelOpenState = false; }
 
   togglePanel() {
     console.log("toggle panel clicked.");
@@ -77,7 +62,7 @@ export class CustomAccordionComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // console.log(this.accordionContent);
+    console.log(this.accordionContent);
     // this._children = this.accordionContent.toArray();
 
     // for (let index = 0; index < this._children.length; index++) {

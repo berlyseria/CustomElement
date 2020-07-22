@@ -2,12 +2,10 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  HostListener,
   Input,
-  OnInit,
   Output,
-  ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
+  AfterViewInit
 } from '@angular/core';
 
 @Component({
@@ -16,9 +14,9 @@ import {
   styleUrls: ['./custom-accordion-content.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class CustomAccordionContentComponent implements OnInit {
+export class CustomAccordionContentComponent implements AfterViewInit {
+
   private _contentId: number;
-  // private _header: string;
   private _isopen: boolean = false;
 
   @Input() set contentId(value: number) {
@@ -28,17 +26,11 @@ export class CustomAccordionContentComponent implements OnInit {
     return this._contentId;
   }
 
-  // @Input('header') set header(value: string) {
-  //   this._header = value;
-  // }
-  // get header(): string {
-  //   return this._header;
-  // }
-
   @Output() toggleAccordion: EventEmitter<boolean> = new EventEmitter();
 
   toggleOpen() {
-    this.isopen = !this.isopen;
+    // this.isopen = !this.isopen;
+    console.log("from accordion-content", this.isopen);
     this.toggleAccordion.emit(this.isopen);
   }
 
@@ -47,7 +39,9 @@ export class CustomAccordionContentComponent implements OnInit {
 
   constructor(public elementRef: ElementRef) { }
 
-  ngOnInit() {
-    // console.log("Open:", this.isopen);
+  ngAfterViewInit(): void {
+    if (this.isopen) {
+      this.toggleOpen();
+    }
   }
 }

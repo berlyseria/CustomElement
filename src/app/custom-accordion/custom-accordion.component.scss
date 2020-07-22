@@ -1,24 +1,51 @@
+.accordion{  
+  &.click-focus:focus{
+    outline: none;
+  }
+  
+  &:focus{
+    // @include addfocus();
+    border: 1px solid blue;
+  }
+}
+
 .accordion-panel{
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  
-    .header{
-      cursor: pointer;
-      height: 27px !important;
-      font-family: sans-serif !important;
-      font-size: 20px !important;
-  
-      &:hover {
-          font-family: sans-serif !important;
-      }
-    }
-  
-    svg.chevron{
-      transition: all 0.5s ease;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+  .header{
+    cursor: pointer;
+    height: 27px !important;
+    font-family: sans-serif !important;
+    font-size: 20px !important;
+
+    &:hover {
+        font-family: sans-serif !important;
     }
   }
-  
-  .chevron {
-    text-align: end;
+
+  svg.chevron{
+    transition: all 0.5s ease;
   }
+}
+
+.chevron {
+  text-align: end;
+}
+
+.selected {
+  background: #f7f7f7;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  
+  .accordion-panel{
+    padding-bottom: 5px;
+    border: none;
+  }
+
+  svg.chevron{
+    transform: rotate(180deg);
+  }
+}
