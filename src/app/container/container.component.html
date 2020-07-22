@@ -1,12 +1,10 @@
 <div class="form-group">
     <ng-container *ngFor="let content of fullContent; let i = index">
-        <app-custom-accordion panelId="{{i}}" [header]="content.header" [contents]="content">
+        <app-custom-accordion [header]="content.header" panelId="{{i}}">
+            <app-custom-accordion-content>
+                <app-custom-p *ngFor="let detail of content.content[0].details" [text]="detail"></app-custom-p>
+                <app-custom-p [text]="content.content[0].footer"></app-custom-p>
+            </app-custom-accordion-content>
         </app-custom-accordion>
     </ng-container>
-    <!-- <app-custom-accordion  [header]="content.header" panelId="{{i}}">
-        <app-custom-accordion-content>
-            <app-custom-p *ngFor="let detail of content.content[0].details" [text]="detail"></app-custom-p>
-            <app-custom-p [text]="content.content[0].footer"></app-custom-p>
-        </app-custom-accordion-content>
-    </app-custom-accordion> -->
 </div>

@@ -48,6 +48,6 @@ export class CustomAccordionContentComponent implements OnInit {
   constructor(public elementRef: ElementRef) { }
 
   ngOnInit() {
-    console.log("Open:", this.isopen);
+    // console.log("Open:", this.isopen);
   }
 }

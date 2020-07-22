@@ -14,9 +14,8 @@
             </svg>
         </div>
     </div>
-    <app-custom-accordion-content>
-        <!-- <app-custom-p *ngFor="let detail of content.content[0].details" [text]="detail"></app-custom-p>
-        <app-custom-p [text]="content.content[0].footer"></app-custom-p> -->
+    <app-custom-accordion-content *ngIf="panelOpenState" [isopen]="panelOpenState">
+        <ng-content></ng-content>
     </app-custom-accordion-content>
     <hr>
 </div>
