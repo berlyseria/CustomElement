@@ -1,6 +1,5 @@
 <div [class.selected]="panelOpenState" class="accordion-panel add-padding row" (click)="togglePanel()">
-    <!-- <div class="accordion-panel add-padding row"> -->
-    <div class="header col-10">
+    <!-- <div class="header col-10">
         {{header}} - {{ panelOpenState }}
     </div>
     <div class="chevron col-2">
@@ -11,8 +10,10 @@
                 </polyline>
             </g>
         </svg>
+    </div> -->
+    <div class="panel">
+        <app-custom-accordion-content *ngIf="panelOpenState" [isopen]="panelOpenState">
+            <ng-content></ng-content>
+        </app-custom-accordion-content>
     </div>
-    <app-custom-accordion-content *ngIf="panelOpenState" [isopen]="panelOpenState">
-        <ng-content></ng-content>
-    </app-custom-accordion-content>
 </div>
