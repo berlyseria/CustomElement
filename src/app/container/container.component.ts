@@ -6,6 +6,7 @@ import { Component, AfterViewInit, Input } from '@angular/core';
   styleUrls: ['./container.component.css']
 })
 export class ContainerComponent implements AfterViewInit {
+
   private _fullContent: [];
 
   @Input() set contentlist(value: string) {

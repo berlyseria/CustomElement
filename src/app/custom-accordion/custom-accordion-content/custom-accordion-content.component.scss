@@ -1,52 +1,67 @@
+.add-padding{  
+  padding-right: 40px;
+  padding-left: 41px;
+}
+
 .accordion{  
-    &.click-focus:focus{
-      outline: none;
-    }
-    
-    &:focus{
-      // @include addfocus();
-      border: 1px solid blue;
+  &.click-focus:focus{
+    outline: none;
+  }
+  
+  &:focus{
+    border: 1px solid burlywood;
+  }
+}
+
+.accordion-panel{
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .header{
+    cursor: pointer;
+    height: 27px !important;
+    font-family: sans-serif !important;
+    font-size: 20px !important;
+
+    &:hover {
+        font-family: sans-serif !important;
     }
   }
+
+  svg.chevron{
+    transition: all 0.5s ease;
+  }
+}
+
+.accordion-content{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.chevron {
+  text-align: end;
+}
+
+.selected {
+  background: #f7f7f7;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
   
   .accordion-panel{
-    box-sizing: border-box;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  
-    .header{
-      cursor: pointer;
-      height: 27px !important;
-      font-family: sans-serif !important;
-      font-size: 20px !important;
-  
-      &:hover {
-          font-family: sans-serif !important;
-      }
-    }
-  
-    svg.chevron{
-      transition: all 0.5s ease;
-    }
+    padding-bottom: 5px;
+    border: none;
   }
-  
-  .chevron {
-    text-align: end;
+
+  svg.chevron{
+    transform: rotate(180deg);
   }
-  
-  .selected {
-    background: #f7f7f7;
-    border-top: 2px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    
-    .accordion-panel{
-      padding-bottom: 5px;
-      border: none;
-    }
-  
-    svg.chevron{
-      transform: rotate(180deg);
-    }
+}
+
+hr{
+  margin: 0px 40px;
+
+  &.extend{
+    margin-right: 0px;
+    margin-left: 0px;
   }
-  
+}
