@@ -15,9 +15,8 @@ export class CustomAccordionComponent implements AfterViewInit {
 
   private _children: Array<CustomAccordionContentComponent> = new Array<CustomAccordionContentComponent>();
 
-  // @ContentChildren(CustomAccordionContentComponent) contentChildren: QueryList<CustomAccordionContentComponent>;
-  @ViewChildren(CustomAccordionContentComponent) contentChildren: QueryList<CustomAccordionContentComponent>;
-
+  @ContentChildren(CustomAccordionContentComponent) contentChildren: QueryList<CustomAccordionContentComponent>;
+  @ViewChildren(CustomAccordionContentComponent) viewChildren: QueryList<CustomAccordionContentComponent>;
 
   @Output() isOpen = new EventEmitter<boolean>();
 
@@ -74,26 +73,32 @@ export class CustomAccordionComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
 
-    console.log(this.contentChildren);
-    this._children = this.contentChildren.toArray();
+    // console.log("Content children:", this.contentChildren);
+    console.log("View children:", this.viewChildren);
 
-    for (let index = 0; index < this._children.length; index++) {
-      this.renderer2.listen(this._children[index].elementRef.nativeElement, 'click', () => {
-        this._children[index].clickFocus = true;
-        this.toggle();
-        // this.toggle(this._children[index]);
-      });
-    }
+    this.viewChildren.forEach(val => {
+      console.log("val", val.elementRef);
+    })
 
-    for (let index = 0; index < this._children.length; index++) {
-      this.renderer2.listen(this._children[index].elementRef.nativeElement, 'keyup', ($event: KeyboardEvent) => {
-        $event.preventDefault();
-        this._children[index].clickFocus = false;
-        if ($event.keyCode === 32 || $event.keyCode === 13) {
-          // this.toggle(this._children[index]);
-          this.toggle();
-        }
-      });
-    }
+    // this._children = this.contentChildren.toArray();
+
+    // for (let index = 0; index < this._children.length; index++) {
+    //   this.renderer2.listen(this._children[index].elementRef.nativeElement, 'click', () => {
+    //     this._children[index].clickFocus = true;
+    //     this.toggle();
+    //     // this.toggle(this._children[index]);
+    //   });
+    // }
+
+    // for (let index = 0; index < this._children.length; index++) {
+    //   this.renderer2.listen(this._children[index].elementRef.nativeElement, 'keyup', ($event: KeyboardEvent) => {
+    //     $event.preventDefault();
+    //     this._children[index].clickFocus = false;
+    //     if ($event.keyCode === 32 || $event.keyCode === 13) {
+    //       // this.toggle(this._children[index]);
+    //       this.toggle();
+    //     }
+    //   });
+    // }
   }
 }

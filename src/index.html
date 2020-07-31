@@ -7,7 +7,7 @@
 
 <body>
   <custom-h2 text="Testing Custom Accordion"></custom-h2>
-  <custom-container
+  <!-- <custom-container
     contentlist='[
     { "type": "General",
       "header": "Basic prescription drug",
@@ -39,8 +39,18 @@
       "content": [
         { "details": ["Up to $3,500 per person, per year for formulary† drugs prescribed to treat newly diagnosed conditions.", "Exclusions apply. See the policy for complete details"],
           "footer": "†Formulary drugs are prescription drugs a provincial or territorial government includes in their drug plan formulary and for which the government provides cost sharing with its residents. Formularies vary by province and territory."}]}]'>
-  </custom-container>
-
+  </custom-container> -->
+  <accordion-main>
+    <accordion-panel header="Test Header 1">
+      <custom-p text="some test text 1"></custom-p>
+    </accordion-panel>
+    <accordion-panel header="Test Header 2">
+      <custom-p text="some test text 2"></custom-p>
+    </accordion-panel>
+    <accordion-panel header="Test Header 3">
+      <custom-p text="some test text 3"></custom-p>
+    </accordion-panel>
+  </accordion-main>
   <script src="wc-element.js"></script>
 </body>
 

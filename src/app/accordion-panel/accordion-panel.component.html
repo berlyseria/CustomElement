@@ -1,0 +1,15 @@
+<div #panel class="accordion-panel row" (click)="togglePanel()">
+    <app-accordion-panel-header class="header col-10" header="{{header}}"></app-accordion-panel-header>
+    <div class="chevron col-2">
+        <svg class="chevron" width="17px" height="9.5px" viewBox="0 0 17 10" version="1.1"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <polyline id="Path" stroke="#231F20" stroke-width="2" points="1 1 8.47875354 8.5 15.9575071 1">
+                </polyline>
+            </g>
+        </svg>
+    </div>
+    <div *ngIf="panelOpenState" class="panel">
+        <ng-content></ng-content>
+    </div>
+</div>

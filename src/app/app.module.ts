@@ -7,6 +7,9 @@ import { CustomAccordionContentComponent } from './custom-accordion/custom-accor
 import { ContainerComponent } from './container/container.component';
 import { CustomPComponent } from './custom-p/custom-p.component';
 import { CustomH2Component } from './custom-h2/custom-h2.component';
+import { AccordionComponent } from './accordion/accordion.component';
+import { AccordionPanelComponent } from './accordion-panel/accordion-panel.component';
+import { AccordionPanelHeaderComponent } from './accordion-panel-header/accordion-panel-header.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import { CustomH2Component } from './custom-h2/custom-h2.component';
     CustomAccordionContentComponent,
     ContainerComponent,
     CustomPComponent,
-    CustomH2Component
+    CustomH2Component,
+    AccordionComponent,
+    AccordionPanelComponent,
+    AccordionPanelHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -44,14 +50,29 @@ export class AppModule {
     });
     customElements.define('custom-container', customContainerEl);
 
-    const accordionEl = createCustomElement(CustomAccordionComponent, {
+    const customAccordionEl = createCustomElement(CustomAccordionComponent, {
       injector: this.injector
     });
-    customElements.define('custom-accordion', accordionEl);
+    customElements.define('custom-accordion', customAccordionEl);
 
-    const accordionContentEl = createCustomElement(CustomAccordionContentComponent, {
+    const customAccordionContentEl = createCustomElement(CustomAccordionContentComponent, {
       injector: this.injector
     });
-    customElements.define('custom-accordion-content', accordionContentEl);
+    customElements.define('custom-accordion-content', customAccordionContentEl);
+
+    const accordionEl = createCustomElement(AccordionComponent, {
+      injector: this.injector
+    });
+    customElements.define('accordion-main', accordionEl);
+
+    const accordionPanelEl = createCustomElement(AccordionPanelComponent, {
+      injector: this.injector
+    });
+    customElements.define('accordion-panel', accordionPanelEl);
+
+    const accordionPanelHeaderEl = createCustomElement(AccordionPanelHeaderComponent, {
+      injector: this.injector
+    });
+    customElements.define('accordion-panel-header', accordionPanelHeaderEl);
   }
 }

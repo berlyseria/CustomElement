@@ -31,8 +31,6 @@ export class CustomAccordionContentComponent implements OnInit {
 
   @Output() toggleAccordion: EventEmitter<boolean> = new EventEmitter();
 
-  @ViewChild('accordion') _accordionEl: ElementRef;
-
   // Prevent screen from scrolling down
   @HostListener('window:keydown', ['$event']) handleKeyDown(event: KeyboardEvent) { return !(event.keyCode == 32); }
 
@@ -72,7 +70,5 @@ export class CustomAccordionContentComponent implements OnInit {
 
   constructor(public elementRef: ElementRef) { }
 
-  ngOnInit() {
-    // console.log("from accordion");
-  }
+  ngOnInit() { }
 }
